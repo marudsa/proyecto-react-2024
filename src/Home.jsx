@@ -4,7 +4,7 @@ import "./Home.css"
 const Home = () => {
   return (
     <div className="home-container">
-      <h1 className="title">Bienvenido a EDmarket</h1>
+      <h1 className="title">Bienvenido a Criptomonedas Maru</h1>
       <p className="subtitle">Cónoce las 100 criptos más usadas</p>
       <Link to="/criptomonedas" className="link">Ver criptomonedas</Link>
     </div>
