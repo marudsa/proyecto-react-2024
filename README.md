@@ -1,8 +1,66 @@
-# React + Vite
+# Cryptocurrency Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React application for exploring cryptocurrency market data using the CoinPaprika API.
 
-Currently, two official plugins are available:
+The project includes demo authentication, a cryptocurrency listing, individual asset details and recent historical price data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live demo
+
+https://proyecto-react-2024-sigma.vercel.app
+
+### Demo credentials
+
+- Email: `eve.holt@reqres.in`
+- Password: `cityslicka`
+
+## Features
+
+- Demo authentication
+- Cryptocurrency listing
+- Current price and 24-hour variation
+- Individual cryptocurrency details
+- Market cap and trading volume
+- Recent historical prices
+- Client-side routing with React Router
+- Error and loading states
+
+## Tech stack
+
+- React
+- Vite
+- JavaScript
+- React Router
+- Axios
+- CoinPaprika API
+- ReqRes
+- Vercel
+
+## Routes
+
+- `/` — Home
+- `/login` — Demo login
+- `/criptomonedas` — Cryptocurrency list
+- `/criptomonedas/:id` — Asset detail and history
+- `/perfil` — Demo profile
+
+## Project update
+
+This project was originally created in 2024.
+
+In 2026 it was updated to restore its public demo, including:
+
+- Migration from the discontinued CoinCap API to CoinPaprika.
+- Adaptation of cryptocurrency and historical data.
+- Error handling improvements.
+- Demo credentials displayed in the login.
+- PropTypes validation.
+- Vercel SPA routing configuration.
+- Updated production deployment.
+
+## Author
+
+**Marudsa**
+
+- Portfolio: https://marudsa-portfolio.vercel.app
+- LinkedIn: https://www.linkedin.com/in/marudsa/
+- GitHub: https://github.com/marudsa
