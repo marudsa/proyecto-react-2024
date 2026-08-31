@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import { parseFloatNumber } from "../../helpers/numbers"
 
 const CriptoInfo = ({ cripto }) => {
@@ -30,14 +31,23 @@ const CriptoInfo = ({ cripto }) => {
             <span className="label">Variación (24 Hrs.): </span>
             <span>{parseFloatNumber(cripto.changePercent24Hr, 3)}</span>
           </li>
-          <li className="detail">
-            <span className="label">Vwap 24 Hrs.: </span>
-            <span>{parseFloatNumber(cripto.vwap24Hr, 3)}</span>
-          </li>
         </ul>
       </div>
     </div>
   )
+}
+
+CriptoInfo.propTypes = {
+  cripto: PropTypes.shape({
+    rank: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    symbol: PropTypes.string.isRequired,
+    priceUsd: PropTypes.number.isRequired,
+    maxSupply: PropTypes.number.isRequired,
+    marketCapUsd: PropTypes.number.isRequired,
+    volumeUsd24Hr: PropTypes.number.isRequired,
+    changePercent24Hr: PropTypes.number.isRequired,
+  }).isRequired,
 }
 
 export default CriptoInfo
