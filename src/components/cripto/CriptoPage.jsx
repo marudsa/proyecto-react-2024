@@ -1,42 +1,34 @@
-import PropTypes from "prop-types"
-import { Link } from "react-router-dom"
-import "./Cripto.css"
+import { useParams } from "react-router-dom"
+import usePetition from "../hooks/usePetition"
+import "./CriptoPage.css"
+import CriptoHistory from "./info/CriptoHistorial"
+import CriptoInfo from "./info/CriptoInfo"
 
-const Cripto = ({ id, name, priceUSD, symbol, changePercent24Hr }) => {
+const CriptoPage = () => {
+  const params = useParams()
+
+  const [cripto, cargandoCripto, errorCripto] =
+    usePetition(`assets/${params.id}`)
+
+  const [history, cargandoHistory, errorHistory] =
+    usePetition(`assets/${params.id}/history?interval=d1`)
+
+  if (cargandoCripto || cargandoHistory) {
+    return <span>Cargando...</span>
+  }
+  if (errorCripto || errorHistory) {
+    return (
+      <span>
+        No fue posible cargar la información de la criptomoneda.
+      </span>
+    )
+  }
   return (
-    <div className="cripto">
-      <Link to={`/criptomonedas/${id}`}>
-        <h2>{name}</h2>
-      </Link>
-      <div className="info">
-        <p>
-          <span className="label">Precio: </span>
-          {parseFloat(priceUSD).toFixed(4)}
-        </p>
-        <p>
-          <span className="label">Código: </span>
-          {symbol}
-        </p>
-        <p>
-          <span className="label">Variación 24hrs: </span>
-          <span
-            className={
-              parseFloat(changePercent24Hr) > 0 ? "positivo" : "negativo"
-            }
-          >
-            {parseFloat(changePercent24Hr).toFixed(3)}%
-          </span>
-        </p>
-      </div>
+    <div className="cripto-page-container">
+      {cripto && <CriptoInfo cripto={cripto} />}
+      {history && <CriptoHistory history={history} />}
     </div>
   )
 }
-Cripto.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  priceUSD: PropTypes.number.isRequired,
-  symbol: PropTypes.string.isRequired,
-  changePercent24Hr: PropTypes.number.isRequired,
-}
 
-export default Cripto
+export default CriptoPage
