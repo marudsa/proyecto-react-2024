@@ -64,6 +64,11 @@ const Login = () => {
         />
         </div>
       </form>
+      <div className="demo-credentials">
+        <p><strong>Credenciales de demostración</strong></p>
+        <p>Correo: eve.holt@reqres.in</p>
+        <p>Contraseña: cityslicka</p>
+      </div>
       {
         error && <span className="error">Error: {error}</span>
       }
